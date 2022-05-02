@@ -107,46 +107,69 @@ html{
         margin-top: 4rem;
     }
 
-    .inform{
-        display: block;
+    .text-box{
+      display: block;
+      overflow-x: hidden;
+      background: #32434d;
     }
 
-@keyframes myAnimation {
-    from{
-        width: 0%;
+    h2{
+      font-size: 2rem;
+      font-weight: 600;
+      font-family: serif;
+      color: #fff;
+      position: relative;
     }
 
-    to{
-        width: 100%;
+    h2::before, h2::after{
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
     }
-}
 
-.inform{
-    margin: 0 15px;
-}
-
-.with-transition{
-    display:inline-block;
-}
-
-.typed-out{
-    overflow: hidden;
-    border-right: .15em solid orange;
-    width: 0;
-    white-space: nowrap;
-    animation:
-    myAnimation 3s steps(20, end) forwards, blink 1.2s infinite;
-}
-
-@keyframes blink{
-    from,
-    to {
-        border-color: transparent;
+    h2::before{
+      background: #32434d;
+      animation: type 3s steps(25) 1s forwards infinite;
+      width: 100%;
     }
-    50%{
-        border-color: orange;
+
+    span{
+      color: red;
+      font-weight: 900;
+      font-size: 2.2rem;
     }
-}
+
+    h2::after{
+      opacity: 1;
+      width: 2px;
+      background-color: #fff;
+      color: #fff;
+      animation: type 3s steps(15) 1s forwards infinite, blink 0.6s steps(5) infinite;
+    }
+
+    @keyframes type {
+
+      to{
+        left: 100%
+      }
+
+    }
+
+    @keyframes blink {
+
+      0%, 50%{
+        opacity: 0;
+      }
+
+      51%, 100%{
+        opacity: 1;
+      }
+
+    }
+
+
 
 .in-data{
     display: block;
@@ -179,7 +202,6 @@ html{
 /* ==========================BEGINNING OF ABOUT SECTION====================== */
 .about_section{
     width: 100%;
-    height: 100vh;
     scroll-behavior: smooth;
     padding-top: 4rem;
 
@@ -248,7 +270,7 @@ html{
 
 }
 
-input{
+input, textarea{
   border-radius: 17px;
   border: 1px solid white;
   text-align: center;
@@ -256,6 +278,7 @@ input{
 
 input:last-child{
   width: 100px;
+  margin: 10px auto;
 }
 .middle {
 	/* top: 50%;
@@ -279,7 +302,6 @@ input:last-child{
 	box-shadow: 0 5px 15px -5px #00000070;
 	color: #3498db;
 	overflow: hidden;
-	position: relative;
 }
 
 .btn i {
@@ -363,7 +385,7 @@ top: 90%;
   background-color:rgba(0, 0, 0, 0.863);
   backdrop-filter: blur(100px);
   border-radius:0px 0px 0px 20px;
-  transition:transform 0.3s ease-in;
+  transition:transform 0.3s ease-in-out;
   transform:translate(100%);
  }
 
